@@ -46,7 +46,7 @@
 // Compilar:  g++ -std=c++20 -Wall -Wextra -g ejercicio15_sesion_estudio.cpp -o bin/ejercicio15
 // Ejecutar:  ./bin/ejercicio15
 
-include <iostream>
+#include <iostream>
 
 class SesionEstudio {
 private:
@@ -69,7 +69,9 @@ public:
             horaFin = fin;
             return true;
         }
-        return false;
+        else {
+            return false;
+        }
     }
 
     int getMinutosDescanso() {

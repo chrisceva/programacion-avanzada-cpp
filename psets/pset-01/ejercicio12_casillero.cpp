@@ -33,19 +33,19 @@ class Casillero {
 private:
     int numeroCombinacion;
 public:
-    bool setNumeroCombinacion(int n);
-    int getNumeroCombinacion();
+    Casillero() : numeroCombinacion(0) {}
     
-    int getNumeroCombinacion() {
-        return numeroCombinacion;
-    }
-    bool setNumeroCombinacion(int n) {
+    bool setNumeroCombinacion(int n){
         if (n >= 1000 && n <= 9999) {
             numeroCombinacion = n;
             return true;
         } else {
             return false;
         }
+    };
+    
+     int getNumeroCombinacion(){
+    return numeroCombinacion;
     }
 }; 
 

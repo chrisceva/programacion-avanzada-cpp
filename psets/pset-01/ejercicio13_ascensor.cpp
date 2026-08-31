@@ -38,10 +38,17 @@ class Ascensor {
 private:
     int pisoMinimo;
     int pisoMaximo;
-    return false;
-
+    
 public:
-    bool setRangoPisos(int minimo, int maximo) {return false;
+    bool setRangoPisos(int minimo, int maximo) {
+        if (minimo >= -2 && maximo <= 50 && minimo < maximo) {
+            pisoMinimo = minimo;
+            pisoMaximo = maximo;
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     int getPisoMinimo() {return pisoMinimo;
@@ -49,14 +56,6 @@ public:
     int getPisoMaximo() {return pisoMaximo;
     }
 
-    bool setRangoPisos(int minimo, int maximo) {
-        if (minimo >= -2 && maximo <= 50 && minimo < maximo) {
-            pisoMinimo = minimo;
-            pisoMaximo = maximo;
-            return true;
-        }
-        return false;
-    }
 };
 
 int main() {

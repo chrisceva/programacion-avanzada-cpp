@@ -13,6 +13,12 @@ class LecturaSensor {
             std::cout << std::endl;
         }
         int getValor() {
+            std::cout << "Se llamo al constructor" << std::endl;
+        }
+        ~LecturaSensor(){
+            std::cout << "Llamando al destructor" << std::endl;
+        }
+        int getValor(){
             return valor;
         }
 };
@@ -29,6 +35,7 @@ int* obtenerLecturaInsegura(int valorSensor) {
 }
 
 void demostrarAlcance () {
+void demostrarAlcance(){
     LecturaSensor sensor(50);
     std::cout << "Valor: " << sensor.getValor() << std::endl;
 }
@@ -38,6 +45,13 @@ LecturaSensor *  demostrarAlcanceMemoriaDinamica () {
     std::cout << "Valor: " << sensor->getValor() << std::endl;
     delete sensor; // Liberar la memoria asignada dinámicamente
     sensor = nullptr; // Evitar puntero colgante
+LecturaSensor* demostrarAlcanceMemoriaDinamica(){
+    LecturaSensor *sensor = new LecturaSensor(80);
+    std::cout << "Valor: " << sensor->getValor() << std::endl;
+    delete sensor;
+
+    sensor = nullptr;
+
     return sensor;
 }
 
@@ -48,6 +62,12 @@ int main() {
     demostrarAlcance();
     LecturaSensor* sensor_ptr = demostrarAlcanceMemoriaDinamica();
     std::cout << sensor_ptr << std::endl;
+    int* resultado = obtenerLecturaInsegura(10);
+    std::cout << "Lectura (puntero colgante): " << *resultado << std::endl;
+    std::cout << std::endl;
+    demostrarAlcance();
+    LecturaSensor* sensor_ptr = demostrarAlcanceMemoriaDinamica();
+    std::cout << sensor_ptr <<  std::endl;
 
     return 0;
 }
